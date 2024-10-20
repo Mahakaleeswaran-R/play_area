@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:play_area/utils/constant.dart';
 import 'package:play_area/utils/theme.dart';
 import 'screens/splash_screen.dart';
@@ -12,13 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: appTitle,
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: ThemeMode.system,
-        home: const Scaffold(
+        home: Scaffold(
           body: SplashScreen(),
         ));
   }
