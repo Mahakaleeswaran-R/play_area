@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:play_area/controller/splash_controller.dart';
 import 'package:play_area/utils/constant.dart';
 import 'package:play_area/utils/theme.dart';
+import 'package:play_area/widgets/elevatedButtonWidget.dart';
+import 'package:play_area/widgets/outlineButtonWidget.dart';
 
 class SplashScreen extends StatelessWidget {
   final splashController = Get.put(SplashController());
@@ -36,52 +38,42 @@ class SplashScreen extends StatelessWidget {
           Text(splashScreenBodyText,
               style: Theme.of(context).textTheme.bodyMedium),
           SizedBox(
-            height: size.width * 0.2,
+            height: size.width * 0.3,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              outlineButtonWidget(size: size, text: login),
               SizedBox(
-                width: size.width * 0.39,
-                child: OutlinedButton(
-                    onPressed: () {},
-                    child: Text(
-                      login,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(color: primaryColor),
-                    ),
-                    style: ButtonStyle(
-                      side: WidgetStateProperty.all(
-                          BorderSide(color: primaryColor)),
-                      shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      )),
-                    )),
+                width: size.width * 0.04,
               ),
-              SizedBox(
-                width: size.width * 0.02,
-              ),
-              SizedBox(
-                width: size.width * 0.39,
-                child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      signUp,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(primaryColor),
-                      shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      )),
-                    )),
-              ),
+              elevatedButtonWidget(size: size, text: signUp),
             ],
+          ),
+          SizedBox(
+            height: size.height * 0.02,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 17.0),
+            child: Row(
+              children: [
+                Checkbox(
+                  value: true,
+                  onChanged: null,
+                  fillColor: WidgetStateProperty.all(primaryColor),
+                ),
+                Text(privacyConstant)
+              ],
+            ),
+          ),
+          SizedBox(
+            height: size.height * 0.01,
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30.0, right: 18),
+              child: Text(privacyPolicy),
+            ),
           ),
         ],
       ),

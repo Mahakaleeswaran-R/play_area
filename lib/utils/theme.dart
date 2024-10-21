@@ -9,6 +9,8 @@ TextStyle baseStyleDark = GoogleFonts.playfairDisplay(
 
 const Color primaryColor = Colors.green;
 
+const int primaryColor_200 = 0xFFA5D6A7;
+
 TextTheme textTheme(TextStyle baseStyle) {
   return TextTheme(
     displayLarge: baseStyle.copyWith(fontSize: 32),
